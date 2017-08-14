@@ -22,6 +22,10 @@
         <activity android:name=".page.dao.DaoActivity"/>
 		<activity android:name=".page.eventbus.EventFirstActivity"/>
         <activity android:name=".page.eventbus.EventSecondActivity"/>
+
+        <activity android:name=".page.movie.MovieActivity"/>
+        <activity android:name=".page.welfare.WelfareActivity"/>
+
     </application>
 
 </manifest>

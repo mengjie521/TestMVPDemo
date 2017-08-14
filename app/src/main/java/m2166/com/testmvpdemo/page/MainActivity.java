@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import m2166.com.testmvpdemo.R;
@@ -20,13 +22,18 @@ import m2166.com.testmvpdemo.page.butterknife.ButterknifeActivity;
 import m2166.com.testmvpdemo.page.dao.DaoActivity;
 import m2166.com.testmvpdemo.page.eventbus.EventFirstActivity;
 import m2166.com.testmvpdemo.page.login.MvpActivity;
+import m2166.com.testmvpdemo.page.movie.MovieActivity;
 import m2166.com.testmvpdemo.page.pay.PayActivity;
+import m2166.com.testmvpdemo.page.welfare.WelfareActivity;
+import m2166.com.testmvpdemo.test.ServerDemo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.functions.Action1;
+
+import static m2166.com.testmvpdemo.R.id.bt_testserver;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv_est;
     private Button bt_dao;
     private Button bt_event_bus;
+    private Button bt_movie;
+    private Button bt_welfare;
+    private Button test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +67,15 @@ public class MainActivity extends AppCompatActivity {
         bt_http.setOnClickListener(mClicklisteber);
         bt_dao = (Button) findViewById(R.id.bt_dao);
         bt_dao.setOnClickListener(mClicklisteber);
-
+        test = (Button) findViewById(bt_testserver);
+        test.setOnClickListener(mClicklisteber);
         bt_event_bus = (Button) findViewById(R.id.bt_event_bus);
         bt_event_bus.setOnClickListener(mClicklisteber);
+
+        bt_movie = (Button) findViewById(R.id.bt_movie);
+        bt_movie.setOnClickListener(mClicklisteber);
+        bt_welfare = (Button) findViewById(R.id.bt_welfare);
+        bt_welfare.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -137,6 +153,43 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.bt_event_bus:
                     startActivity(new Intent(MainActivity.this,EventFirstActivity.class));
+                    break;
+
+                case R.id.bt_movie:
+                    startActivity(new Intent(MainActivity.this,MovieActivity.class));
+                    break;
+                case R.id.bt_welfare:
+                    startActivity(new Intent(MainActivity.this,WelfareActivity.class));
+                    break;
+
+                case bt_testserver:
+                    Map<String, String> map = new HashMap<>();
+                    /**
+                     * 这个是把数组中的参数拼接成字符串并把数组中的值（value）进行urlencode直接和appsecret拼接之后的字符串
+                     $strquery = channel_id=2&channel_order_number=PF_20170814120146p8fe
+                     &cp_order_id=1502682753091735233&currency=1
+                     &extension=350004%7C%3A%7C15002%7C%3A%7C%E9%A9%AC%E6%96%AF%E5%8D%A1%C2%B7%E4%BD%A9%E7%89%B9%7C%3A%7C236142
+                     &game_id=2&pay_amount=6&pay_status=2&pay_time=1502683407
+                     &product_name=1200%E9%92%BB%E7%9F%B3&server_id=15002
+                     &user_account=2132902333.2166
+                     &user_id=33261b2801a636df54f4b4d99b6313f02b
+
+                     */
+                    map.put("channel_id", "2");
+                    map.put("channel_order_number", "PF_20170814120146p8fe");
+                    map.put("cp_order_id", "1502682753091735233");
+                    map.put("currency", "1");
+                    map.put("extension", "350004%7C%3A%7C15002%7C%3A%7C%E9%A9%AC%E6%96%AF%E5%8D%A1%C2%B7%E4%BD%A9%E7%89%B9%7C%3A%7C236142");
+                    map.put("game_id", "2");
+                    map.put("pay_amount", "6");
+                    map.put("pay_status", "2");
+                    map.put("pay_time", "1502683407");
+                    map.put("product_name", "1200%E9%92%BB%E7%9F%B3");
+                    map.put("server_id", "15002");
+                    map.put("user_account", "2132902333.2166");
+                    map.put("user_id", "33261b2801a636df54f4b4d99b6313f02b");
+                    String sign = new ServerDemo().getSign(map, "261b2801a636df54f4b4d99b6313f02b");
+                    Log.e("=====sign", "onClick: "+sign );
                     break;
             }
         }

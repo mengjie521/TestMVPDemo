@@ -38,8 +38,8 @@ public class NetFactory {
 
         //设置必传参数,每个接口都有的必传参数
         HttpCommonInterface httpCommonInterface = new HttpCommonInterface.Builder()
-                .addParams("account", 123456)
-                .addParams("pws",1111111)
+//                .addParams("account", 123456)
+//                .addParams("pws",1111111)
                 .builder();
 
         builder.addInterceptor(httpCommonInterface);
@@ -49,7 +49,8 @@ public class NetFactory {
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl("http://www.2166.com")
+//                .baseUrl("http://www.2166.com")
+                .baseUrl("https://api.douban.com/v2/movie/")
                 .build();
     }
 
