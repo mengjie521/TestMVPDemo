@@ -20,6 +20,8 @@
         <activity android:name=".page.pay.PayActivity"/>
         <activity android:name=".page.butterknife.ButterknifeActivity"/>
         <activity android:name=".page.dao.DaoActivity"/>
+		<activity android:name=".page.eventbus.EventFirstActivity"/>
+        <activity android:name=".page.eventbus.EventSecondActivity"/>
     </application>
 
 </manifest>
