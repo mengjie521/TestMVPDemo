@@ -67,6 +67,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/bt_event_bus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="event_bus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
 
         android:id="@+id/tv_test"

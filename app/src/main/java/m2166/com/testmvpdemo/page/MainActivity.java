@@ -18,6 +18,7 @@ import m2166.com.testmvpdemo.net.ContentBean;
 import m2166.com.testmvpdemo.net.DataServer;
 import m2166.com.testmvpdemo.page.butterknife.ButterknifeActivity;
 import m2166.com.testmvpdemo.page.dao.DaoActivity;
+import m2166.com.testmvpdemo.page.eventbus.EventFirstActivity;
 import m2166.com.testmvpdemo.page.login.MvpActivity;
 import m2166.com.testmvpdemo.page.pay.PayActivity;
 import retrofit2.Call;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_http;
     private TextView tv_est;
     private Button bt_dao;
+    private Button bt_event_bus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         bt_http.setOnClickListener(mClicklisteber);
         bt_dao = (Button) findViewById(R.id.bt_dao);
         bt_dao.setOnClickListener(mClicklisteber);
+
+        bt_event_bus = (Button) findViewById(R.id.bt_event_bus);
+        bt_event_bus.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -128,6 +133,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.bt_dao:
                     startActivity(new Intent(MainActivity.this, DaoActivity.class));
+                    break;
+
+                case R.id.bt_event_bus:
+                    startActivity(new Intent(MainActivity.this,EventFirstActivity.class));
                     break;
             }
         }
