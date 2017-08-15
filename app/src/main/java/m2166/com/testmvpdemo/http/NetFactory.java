@@ -50,7 +50,8 @@ public class NetFactory {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
 //                .baseUrl("http://www.2166.com")
-                .baseUrl("https://api.douban.com/v2/movie/")
+//                .baseUrl("https://api.douban.com/v2/movie/")
+                .baseUrl("http://gank.io/api/data/")
                 .build();
     }
 
