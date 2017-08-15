@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import java.util.List;
@@ -16,7 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import m2166.com.testmvpdemo.R;
 import m2166.com.testmvpdemo.base.MVPBaseActivity;
-import m2166.com.testmvpdemo.callback.ICall;
 import m2166.com.testmvpdemo.page.welfare.adapter.WelfareAdapter;
 import m2166.com.testmvpdemo.page.welfare.net.ResultsBean;
 
@@ -25,7 +23,7 @@ import m2166.com.testmvpdemo.page.welfare.net.ResultsBean;
  * email: weidadajie@163.com
  */
 
-public class WelfareActivity extends MVPBaseActivity<WelfareActivity, WelfarePresenterImp> {
+public class WelfareActivity extends MVPBaseActivity<WelfareActivity, WelfarePresenterImp> implements WelfareView{
     @BindView(R.id.tb_welfare)
     Toolbar tbWelfare;
     @BindView(R.id.rv_welfare)
@@ -46,6 +44,7 @@ public class WelfareActivity extends MVPBaseActivity<WelfareActivity, WelfarePre
         mActivity = this;
         ButterKnife.bind(this);
         initData();
+        getNetData();
     }
 
     private void initData() {
@@ -66,26 +65,35 @@ public class WelfareActivity extends MVPBaseActivity<WelfareActivity, WelfarePre
         });
         welfareAdapter = new WelfareAdapter(this);
         rvWelfare.setAdapter(welfareAdapter);
-        getNetData();
     }
 
     private void getNetData() {
-        mPresenter.getList(new ICall<List<ResultsBean>>() {
-            @Override
-            public void onSuccess(List<ResultsBean> resultsBeen) {
-                for (int i = 0; i < resultsBeen.size(); i++) {
-                    ResultsBean resultsBean = resultsBeen.get(i);
-                    Log.e("====", "onSuccess: "+resultsBean.desc );
-                }
-                welfareAdapter.setListData(resultsBeen);
-            }
-
-            @Override
-            public void onFail(String failMsg) {
-
-            }
-        });
+        mPresenter.getList();
+//        mPresenter.getList(new ICall<List<ResultsBean>>() {
+//            @Override
+//            public void onSuccess(List<ResultsBean> resultsBeen) {
+//                for (int i = 0; i < resultsBeen.size(); i++) {
+//                    ResultsBean resultsBean = resultsBeen.get(i);
+//                    Log.e("====", "onSuccess: "+resultsBean.desc );
+//                }
+//                welfareAdapter.setListData(resultsBeen);
+//            }
+//
+//            @Override
+//            public void onFail(String failMsg) {
+//
+//            }
+//        });
     }
 
 
+    @Override
+    public void onGetDataSuccess(List<ResultsBean> list) {
+        welfareAdapter.setListData(list);
+    }
+
+    @Override
+    public void onGetDataFail(String msg) {
+
+    }
 }

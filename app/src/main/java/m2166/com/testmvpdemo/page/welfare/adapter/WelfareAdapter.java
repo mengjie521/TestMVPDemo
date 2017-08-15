@@ -24,8 +24,10 @@ import m2166.com.testmvpdemo.page.welfare.net.ResultsBean;
  */
 
 public class WelfareAdapter extends RecyclerView.Adapter<WelfareAdapter.WelfareViewHolder> {
+
     private Context context;
     List<ResultsBean> listData = new ArrayList<>();
+
 
     public WelfareAdapter(Context context) {
         this.context = context;

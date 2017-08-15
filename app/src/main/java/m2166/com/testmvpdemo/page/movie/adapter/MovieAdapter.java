@@ -17,6 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import m2166.com.testmvpdemo.R;
+import m2166.com.testmvpdemo.callback.OnItemClickListener;
 import m2166.com.testmvpdemo.page.movie.SubjectsBean;
 
 /**
@@ -26,6 +27,7 @@ import m2166.com.testmvpdemo.page.movie.SubjectsBean;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder> {
     private Context context;
+    private OnItemClickListener mOnItemClickListener = null;
     private List<SubjectsBean> list = new ArrayList<>();
 
     public MovieAdapter(Context context) {
@@ -45,13 +47,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
     }
 
     @Override
-    public void onBindViewHolder(MovieHolder holder, int position) {
+    public void onBindViewHolder(MovieHolder holder, final int position) {
         for (int i = 0; i < list.size(); i++) {
             Log.e("===", "onSuccess: "+list.get(i).images );
         }
         holder.movieTitle.setText(list.get(position).title);
         holder.movieSubTitle.setText(list.get(position).original_title);
         holder.movieTime.setText(list.get(position).year);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOnItemClickListener.itemClick(v,position);
+            }
+        });
         Glide.with(context).load(list.get(position).images.small).into(holder.movieImage);
     }
 
@@ -75,5 +83,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
+    }
+
+    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener){
+        this.mOnItemClickListener = mOnItemClickListener;
     }
 }

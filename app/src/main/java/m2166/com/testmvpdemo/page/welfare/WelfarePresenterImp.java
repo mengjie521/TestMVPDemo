@@ -5,7 +5,6 @@ import android.util.Log;
 import java.util.List;
 
 import m2166.com.testmvpdemo.base.BasePresenter;
-import m2166.com.testmvpdemo.callback.ICall;
 import m2166.com.testmvpdemo.page.welfare.net.ResultsBean;
 import m2166.com.testmvpdemo.page.welfare.net.WelfareLoad;
 import rx.Observer;
@@ -16,9 +15,10 @@ import rx.Observer;
  */
 
 public class WelfarePresenterImp extends BasePresenter<WelfareActivity> implements WelfarePresenter{
-
+   WelfareActivity welfareActivity;
     @Override
-    public void getList(final ICall<List<ResultsBean>> call) {
+    public void getList() {
+        welfareActivity = getView();
         new WelfareLoad().getWelfareList().subscribe(new Observer<List<ResultsBean>>() {
             @Override
             public void onCompleted() {
@@ -27,13 +27,40 @@ public class WelfarePresenterImp extends BasePresenter<WelfareActivity> implemen
 
             @Override
             public void onError(Throwable e) {
-                call.onFail(e.getMessage());
+                Log.e("=====", "onError: "+e.getMessage() );
+                welfareActivity.onGetDataFail(e.getMessage());
             }
 
             @Override
             public void onNext(List<ResultsBean> resultsBeen) {
-                call.onSuccess(resultsBeen);
+                for (int i = 0; i < resultsBeen.size(); i++) {
+                    Log.e("=====", "onNext: "+resultsBeen.get(i)._id );
+                }
+                welfareActivity.onGetDataSuccess(resultsBeen);
             }
         });
     }
+
+//    @Override
+//    public void getList(final ICall<List<ResultsBean>> call) {
+//        new WelfareLoad().getWelfareList().subscribe(new Observer<List<ResultsBean>>() {
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                call.onFail(e.getMessage());
+//            }
+//
+//            @Override
+//            public void onNext(List<ResultsBean> resultsBeen) {
+//                for (int i = 0; i < resultsBeen.size(); i++) {
+//                    Log.e("=====", "onNext: "+resultsBeen.get(i)._id );
+//                }
+//                call.onSuccess(resultsBeen);
+//            }
+//        });
+//    }
 }

@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import butterknife.ButterKnife;
 import m2166.com.testmvpdemo.R;
 import m2166.com.testmvpdemo.base.MVPBaseActivity;
 import m2166.com.testmvpdemo.callback.ICall;
+import m2166.com.testmvpdemo.callback.OnItemClickListener;
 import m2166.com.testmvpdemo.page.movie.adapter.MovieAdapter;
 
 /**
@@ -65,6 +67,12 @@ public class MovieActivity extends MVPBaseActivity<MovieActivity, MoviePresenter
 
 
                 movieAdapter.setList(subjectsBeen);
+                movieAdapter.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void itemClick(View view, int position) {
+                        Toast.makeText(mActivity,"==="+position,Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
