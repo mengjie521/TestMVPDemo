@@ -18,6 +18,7 @@ import m2166.com.testmvpdemo.net.BannerBean;
 import m2166.com.testmvpdemo.net.BannerLoad;
 import m2166.com.testmvpdemo.net.ContentBean;
 import m2166.com.testmvpdemo.net.DataServer;
+import m2166.com.testmvpdemo.page.InnerView.InnerViewPagerActivity;
 import m2166.com.testmvpdemo.page.butterknife.ButterknifeActivity;
 import m2166.com.testmvpdemo.page.dao.DaoActivity;
 import m2166.com.testmvpdemo.page.eventbus.EventFirstActivity;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_movie;
     private Button bt_welfare;
     private Button test;
+    private Button bt_banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         bt_movie.setOnClickListener(mClicklisteber);
         bt_welfare = (Button) findViewById(R.id.bt_welfare);
         bt_welfare.setOnClickListener(mClicklisteber);
+        bt_banner = (Button) findViewById(R.id.bt_viewpager);
+        bt_banner.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -125,12 +129,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 //                    new CompositeSubscription().add(subscribe);
-//                    BannerService bannerService = NetFactory.getInstance().create(BannerService.class);
-////                    Subscriber<BannerService> mySubscriber = new Subscriber<BannerService>().
+//                    InnerService bannerService = NetFactory.getInstance().create(InnerService.class);
+////                    Subscriber<InnerService> mySubscriber = new Subscriber<InnerService>().
 //                    bannerService.getData()
 //                            .subscribeOn(Schedulers.io())
 //                            .observeOn(AndroidSchedulers.mainThread())
-//                            .subscribe(new Subscriber<BannerSubject>() {
+//                            .subscribe(new Subscriber<InnerSubject>() {
 //                                @Override
 //                                public void onCompleted() {
 //
@@ -142,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 //                                }
 //
 //                                @Override
-//                                public void onNext(BannerSubject bannerSubject) {
+//                                public void onNext(InnerSubject bannerSubject) {
 //                                    Log.e("==", "onNext: "+bannerSubject.toString() );
 //                                }
 //                            });
@@ -190,6 +194,10 @@ public class MainActivity extends AppCompatActivity {
                     map.put("user_id", "33261b2801a636df54f4b4d99b6313f02b");
                     String sign = new ServerDemo().getSign(map, "261b2801a636df54f4b4d99b6313f02b");
                     Log.e("=====sign", "onClick: "+sign );
+                    break;
+
+                case R.id.bt_viewpager:
+                    startActivity(new Intent(MainActivity.this, InnerViewPagerActivity.class));
                     break;
             }
         }

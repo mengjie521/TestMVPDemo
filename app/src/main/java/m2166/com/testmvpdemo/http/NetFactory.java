@@ -49,9 +49,9 @@ public class NetFactory {
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-//                .baseUrl("http://www.2166.com")
+                .baseUrl("http://www.2166.com")
 //                .baseUrl("https://api.douban.com/v2/movie/")
-                .baseUrl("http://gank.io/api/data/")
+//                .baseUrl("http://gank.io/api/data/")
                 .build();
     }
 

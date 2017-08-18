@@ -44,7 +44,6 @@ public class WelfareActivity extends MVPBaseActivity<WelfareActivity, WelfarePre
         mActivity = this;
         ButterKnife.bind(this);
         initData();
-        getNetData();
     }
 
     private void initData() {
@@ -65,27 +64,8 @@ public class WelfareActivity extends MVPBaseActivity<WelfareActivity, WelfarePre
         });
         welfareAdapter = new WelfareAdapter(this);
         rvWelfare.setAdapter(welfareAdapter);
-    }
-
-    private void getNetData() {
         mPresenter.getList();
-//        mPresenter.getList(new ICall<List<ResultsBean>>() {
-//            @Override
-//            public void onSuccess(List<ResultsBean> resultsBeen) {
-//                for (int i = 0; i < resultsBeen.size(); i++) {
-//                    ResultsBean resultsBean = resultsBeen.get(i);
-//                    Log.e("====", "onSuccess: "+resultsBean.desc );
-//                }
-//                welfareAdapter.setListData(resultsBeen);
-//            }
-//
-//            @Override
-//            public void onFail(String failMsg) {
-//
-//            }
-//        });
     }
-
 
     @Override
     public void onGetDataSuccess(List<ResultsBean> list) {
