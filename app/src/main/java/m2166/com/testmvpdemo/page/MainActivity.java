@@ -1,5 +1,8 @@
 package m2166.com.testmvpdemo.page;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_welfare;
     private Button test;
     private Button bt_banner;
+    private Button bt_notifiication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
         bt_welfare.setOnClickListener(mClicklisteber);
         bt_banner = (Button) findViewById(R.id.bt_viewpager);
         bt_banner.setOnClickListener(mClicklisteber);
+
+        bt_notifiication = (Button) findViewById(R.id.bt_notification);
+        bt_notifiication.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -199,6 +206,27 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.bt_viewpager:
                     startActivity(new Intent(MainActivity.this, InnerViewPagerActivity.class));
                     break;
+
+                case R.id.bt_notification:
+                    Intent intent = new Intent(MainActivity.this,PayActivity.class);
+                    PendingIntent p = PendingIntent.getActivity(MainActivity.this, 0, intent, 0);
+                    NotificationManager notificationManager = (NotificationManager) MainActivity.this.getSystemService(NOTIFICATION_SERVICE);
+                    Notification.Builder notification = new Notification.Builder(MainActivity.this);
+                    notification.setSmallIcon(R.mipmap.navigation_back_white,1000);
+                    notification.setContentTitle("我是消息");
+                    notification.setContentText("我是很多很多很多很多很多内容啊........");
+                    notification.setWhen(System.currentTimeMillis());
+                    notification.setTicker("接受一条xiaoxi");
+                    notification.setAutoCancel(true);
+                    notification.setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE);
+                    notification.setContentIntent(p);
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                        Notification build = notification.build();
+
+                        notificationManager.notify(0,build);
+                    }
+                    break;
+
             }
         }
     };
