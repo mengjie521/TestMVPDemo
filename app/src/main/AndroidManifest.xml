@@ -28,7 +28,8 @@
         <activity android:name=".page.movie.MovieActivity"/>
         <activity android:name=".page.welfare.WelfareActivity"/>
         <activity android:name=".page.InnerView.InnerViewPagerActivity"/>
-
+        <activity android:name=".page.auto.TextViewActivity"/>
+        <activity android:name=".page.gridview.GridViewActivity"/>
     </application>
 
 </manifest>

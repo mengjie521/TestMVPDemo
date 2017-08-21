@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="40dp" />
+    <AutoCompleteTextView
+        android:id="@+id/tv_ac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:completionHint="选择编程语言"
+        android:completionThreshold="1"
+        android:dropDownHorizontalOffset="5dp"
+        android:textColor="#000000" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/tv_mac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="50dp"
+        android:completionHint="选择你喜欢的运动"
+        android:completionThreshold="1"
+        android:dropDownHorizontalOffset="5dp"
+        android:textColor="#000000" />
+</LinearLayout>

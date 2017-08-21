@@ -22,9 +22,11 @@ import m2166.com.testmvpdemo.net.BannerLoad;
 import m2166.com.testmvpdemo.net.ContentBean;
 import m2166.com.testmvpdemo.net.DataServer;
 import m2166.com.testmvpdemo.page.InnerView.InnerViewPagerActivity;
+import m2166.com.testmvpdemo.page.auto.TextViewActivity;
 import m2166.com.testmvpdemo.page.butterknife.ButterknifeActivity;
 import m2166.com.testmvpdemo.page.dao.DaoActivity;
 import m2166.com.testmvpdemo.page.eventbus.EventFirstActivity;
+import m2166.com.testmvpdemo.page.gridview.GridViewActivity;
 import m2166.com.testmvpdemo.page.login.MvpActivity;
 import m2166.com.testmvpdemo.page.movie.MovieActivity;
 import m2166.com.testmvpdemo.page.pay.PayActivity;
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
     private Button test;
     private Button bt_banner;
     private Button bt_notifiication;
+    private Button bt_textview;
+    private Button bt_gridview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
 
         bt_notifiication = (Button) findViewById(R.id.bt_notification);
         bt_notifiication.setOnClickListener(mClicklisteber);
+        bt_textview = (Button) findViewById(R.id.bt_textview);
+        bt_textview.setOnClickListener(mClicklisteber);
+
+        bt_gridview = (Button) findViewById(R.id.bt_gridview);
+        bt_gridview.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -226,7 +235,11 @@ public class MainActivity extends AppCompatActivity {
                         notificationManager.notify(0,build);
                     }
                     break;
-
+                case R.id.bt_textview:
+                   startActivity(new Intent(MainActivity.this, TextViewActivity.class));
+                    break;
+                case R.id.bt_gridview:
+                    startActivity(new Intent(MainActivity.this, GridViewActivity.class));
             }
         }
     };
