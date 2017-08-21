@@ -3,27 +3,27 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:gravity="center"
     android:layout_height="match_parent">
+
     <Button
-        android:id="@+id/bt_easy"
-        android:text="一个普通的"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/bt_easy_list"
-        android:text="一个普通的带列表的"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/bt_one_check_box"
-        android:text="一个带单选择框的"
+        android:id="@+id/bt_progress_circle"
+        android:text="圆形下载进度"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/bt_much_check_box"
-        android:text="一个带多选择框的"
+        android:id="@+id/bt_progress_rectangle"
+        android:text="矩形下载进度"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt_data_reminder"
+        android:text="日期提示框"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-
+    <Button
+        android:id="@+id/bt_time_choose"
+        android:text="时间选择框"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

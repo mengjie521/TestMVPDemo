@@ -31,6 +31,7 @@
         <activity android:name=".page.auto.TextViewActivity"/>
         <activity android:name=".page.gridview.GridViewActivity"/>
         <activity android:name=".page.dialog.AlertDialogActivity"/>
+        <activity android:name=".page.OtherDialog.OtherDialogActivity"/>
     </application>
 
 </manifest>
