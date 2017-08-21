@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import m2166.com.testmvpdemo.R;
@@ -72,11 +75,23 @@ public class PayActivity extends MVPBaseActivity<PayActivity,PayPresenterImp> im
 
     @Override
     public void paySuccess(int type,String successMsg) {
-        Toast.makeText(mActivity, type + "+++" + successMsg,Toast.LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(mActivity, type + "+++" + successMsg, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER,0,0);
+        LinearLayout linearLayout = (LinearLayout) toast.getView();
+        ImageView imageView = new ImageView(mActivity);
+        imageView.setImageResource(R.mipmap.happy);
+        linearLayout.addView(imageView);
+        toast.show();
     }
 
     @Override
     public void payFail(int code, String errorMsg) {
-        Toast.makeText(mActivity, code + "+++" + errorMsg,Toast.LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(mActivity, code + "+++" + errorMsg, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER,0,0);
+        LinearLayout linearLayout = (LinearLayout) toast.getView();
+        ImageView imageView = new ImageView(mActivity);
+        imageView.setImageResource(R.mipmap.no_happy);
+        linearLayout.addView(imageView);
+        toast.show();
     }
 }
