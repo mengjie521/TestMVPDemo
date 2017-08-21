@@ -25,6 +25,7 @@ import m2166.com.testmvpdemo.page.InnerView.InnerViewPagerActivity;
 import m2166.com.testmvpdemo.page.auto.TextViewActivity;
 import m2166.com.testmvpdemo.page.butterknife.ButterknifeActivity;
 import m2166.com.testmvpdemo.page.dao.DaoActivity;
+import m2166.com.testmvpdemo.page.dialog.AlertDialogActivity;
 import m2166.com.testmvpdemo.page.eventbus.EventFirstActivity;
 import m2166.com.testmvpdemo.page.gridview.GridViewActivity;
 import m2166.com.testmvpdemo.page.login.MvpActivity;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_notifiication;
     private Button bt_textview;
     private Button bt_gridview;
+    private Button bt_dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
 
         bt_gridview = (Button) findViewById(R.id.bt_gridview);
         bt_gridview.setOnClickListener(mClicklisteber);
+
+        bt_dialog = (Button) findViewById(R.id.bt_dialog);
+        bt_dialog.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -240,6 +245,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.bt_gridview:
                     startActivity(new Intent(MainActivity.this, GridViewActivity.class));
+                    break;
+                case R.id.bt_dialog:
+                    startActivity(new Intent(MainActivity.this,AlertDialogActivity.class));
+                    break;
             }
         }
     };
