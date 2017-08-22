@@ -32,6 +32,7 @@
         <activity android:name=".page.gridview.GridViewActivity"/>
         <activity android:name=".page.dialog.AlertDialogActivity"/>
         <activity android:name=".page.OtherDialog.OtherDialogActivity"/>
+        <activity android:name=".page.recycle.RecycleActivity"/>
     </application>
 
 </manifest>

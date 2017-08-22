@@ -32,6 +32,7 @@ import m2166.com.testmvpdemo.page.gridview.GridViewActivity;
 import m2166.com.testmvpdemo.page.login.MvpActivity;
 import m2166.com.testmvpdemo.page.movie.MovieActivity;
 import m2166.com.testmvpdemo.page.pay.PayActivity;
+import m2166.com.testmvpdemo.page.recycle.RecycleActivity;
 import m2166.com.testmvpdemo.page.welfare.WelfareActivity;
 import m2166.com.testmvpdemo.test.ServerDemo;
 import retrofit2.Call;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_gridview;
     private Button bt_dialog;
     private Button bt_dialog_other;
+    private Button bt_recycle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +105,9 @@ public class MainActivity extends AppCompatActivity {
 
         bt_dialog = (Button) findViewById(R.id.bt_dialog);
         bt_dialog.setOnClickListener(mClicklisteber);
+
+        bt_recycle = (Button) findViewById(R.id.bt_recycle);
+        bt_recycle.setOnClickListener(mClicklisteber);
 
         bt_dialog_other = (Button) findViewById(R.id.bt_other_dialog);
         bt_dialog_other.setOnClickListener(mClicklisteber);
@@ -256,6 +261,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.bt_other_dialog:
                     startActivity(new Intent(MainActivity.this, OtherDialogActivity.class));
+                    break;
+
+                case R.id.bt_recycle:
+                    startActivity(new Intent(MainActivity.this,RecycleActivity.class));
                     break;
             }
         }
