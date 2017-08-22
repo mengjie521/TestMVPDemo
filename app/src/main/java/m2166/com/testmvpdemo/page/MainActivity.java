@@ -33,6 +33,7 @@ import m2166.com.testmvpdemo.page.login.MvpActivity;
 import m2166.com.testmvpdemo.page.movie.MovieActivity;
 import m2166.com.testmvpdemo.page.pay.PayActivity;
 import m2166.com.testmvpdemo.page.recycle.RecycleActivity;
+import m2166.com.testmvpdemo.page.recycle_move.RecycleMoveActivity;
 import m2166.com.testmvpdemo.page.welfare.WelfareActivity;
 import m2166.com.testmvpdemo.test.ServerDemo;
 import retrofit2.Call;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_dialog;
     private Button bt_dialog_other;
     private Button bt_recycle;
-
+    private Button bt_recycle_move;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
         bt_dialog_other = (Button) findViewById(R.id.bt_other_dialog);
         bt_dialog_other.setOnClickListener(mClicklisteber);
+        bt_recycle_move = (Button) findViewById(R.id.bt_recycle_move);
+        bt_recycle_move.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -265,6 +268,10 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.bt_recycle:
                     startActivity(new Intent(MainActivity.this,RecycleActivity.class));
+                    break;
+
+                case R.id.bt_recycle_move:
+                    startActivity(new Intent(MainActivity.this,RecycleMoveActivity.class));
                     break;
             }
         }
