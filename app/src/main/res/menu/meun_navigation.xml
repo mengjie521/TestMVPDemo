@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/item_group"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/item_a1"
+            android:icon="@mipmap/a111"
+            android:title="哈哈哈哈哈哈" />
+        <item
+            android:id="@+id/item_a2"
+            android:icon="@mipmap/a2"
+            android:title="哈哈哈哈哈哈" />
+        <item
+            android:id="@+id/item_a3"
+            android:icon="@mipmap/a3"
+            android:title="哈哈哈哈哈哈" />
+        <item
+            android:id="@+id/item_a4"
+            android:icon="@mipmap/a4"
+            android:title="哈哈哈哈哈哈" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/item_a11"
+            android:icon="@mipmap/a111"
+            android:title="哈哈哈哈哈哈" />
+        <item
+            android:id="@+id/item_a21"
+            android:icon="@mipmap/a2"
+            android:title="哈哈哈哈哈哈" />
+        <item
+            android:id="@+id/item_a31"
+            android:icon="@mipmap/a3"
+            android:title="哈哈哈哈哈哈" />
+        <item
+            android:id="@+id/item_a41"
+            android:icon="@mipmap/a4"
+            android:title="哈哈哈哈哈哈" />
+    </group>
+</menu>

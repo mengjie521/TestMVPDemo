@@ -1,11 +1,11 @@
-package m2166.com.testmvpdemo;
+package m2166.com.testmvpdemo.constant;
 
 /**
- * author： mengjie on 2017/8/8.
+ * author： mengjie on 2017/8/23.
  * email: weidadajie@163.com
  */
 
-public class constant {
+public class Api {
     public static final int PAY_ALIPAY = 1;
     public static final int PAY_WEICHAT = 2;
     public static final int PAY_HXPTB = 3;

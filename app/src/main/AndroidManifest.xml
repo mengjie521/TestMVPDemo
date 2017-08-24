@@ -31,9 +31,16 @@
         <activity android:name=".page.auto.TextViewActivity"/>
         <activity android:name=".page.gridview.GridViewActivity"/>
         <activity android:name=".page.dialog.AlertDialogActivity"/>
-        <activity android:name=".page.OtherDialog.OtherDialogActivity"/>
+        <activity android:name=".page.other_dialog.OtherDialogActivity"/>
         <activity android:name=".page.recycle.RecycleActivity"/>
         <activity android:name=".page.recycle_move.RecycleMoveActivity"/>
+        <activity android:name=".page.asd.navigation_view.NavigationViewActivity"/>
+        <activity android:name=".page.asd.floating_action_button.FloatingActionButtonActivity"/>
+        <activity android:name=".page.asd.TextInputLayout.TextInputLayoutActivity"/>
+        <activity android:name=".page.asd.snack_bar.SnackBarActivity"/>
+        <activity android:name=".page.asd.app_bar_layout.AppBarLayoutActivity"/>
+        <activity android:name=".page.asd.coordinator_layout.CoordinatorLayoutActivity"/>
+        <activity android:name=".page.asd.collapsing_toolbar_layout.CollapsingToolBarActivity"/>
     </application>
 
 </manifest>

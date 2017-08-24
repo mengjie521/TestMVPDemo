@@ -1,4 +1,4 @@
-package m2166.com.testmvpdemo.page.OtherDialog;
+package m2166.com.testmvpdemo.page.other_dialog;
 
 import m2166.com.testmvpdemo.base.BasePresenter;
 

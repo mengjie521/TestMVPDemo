@@ -22,7 +22,13 @@ import m2166.com.testmvpdemo.net.BannerLoad;
 import m2166.com.testmvpdemo.net.ContentBean;
 import m2166.com.testmvpdemo.net.DataServer;
 import m2166.com.testmvpdemo.page.InnerView.InnerViewPagerActivity;
-import m2166.com.testmvpdemo.page.OtherDialog.OtherDialogActivity;
+import m2166.com.testmvpdemo.page.asd.TextInputLayout.TextInputLayoutActivity;
+import m2166.com.testmvpdemo.page.asd.app_bar_layout.AppBarLayoutActivity;
+import m2166.com.testmvpdemo.page.asd.collapsing_toolbar_layout.CollapsingToolBarActivity;
+import m2166.com.testmvpdemo.page.asd.coordinator_layout.CoordinatorLayoutActivity;
+import m2166.com.testmvpdemo.page.asd.floating_action_button.FloatingActionButtonActivity;
+import m2166.com.testmvpdemo.page.asd.navigation_view.NavigationViewActivity;
+import m2166.com.testmvpdemo.page.asd.snack_bar.SnackBarActivity;
 import m2166.com.testmvpdemo.page.auto.TextViewActivity;
 import m2166.com.testmvpdemo.page.butterknife.ButterknifeActivity;
 import m2166.com.testmvpdemo.page.dao.DaoActivity;
@@ -31,6 +37,7 @@ import m2166.com.testmvpdemo.page.eventbus.EventFirstActivity;
 import m2166.com.testmvpdemo.page.gridview.GridViewActivity;
 import m2166.com.testmvpdemo.page.login.MvpActivity;
 import m2166.com.testmvpdemo.page.movie.MovieActivity;
+import m2166.com.testmvpdemo.page.other_dialog.OtherDialogActivity;
 import m2166.com.testmvpdemo.page.pay.PayActivity;
 import m2166.com.testmvpdemo.page.recycle.RecycleActivity;
 import m2166.com.testmvpdemo.page.recycle_move.RecycleMoveActivity;
@@ -66,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_dialog_other;
     private Button bt_recycle;
     private Button bt_recycle_move;
+    private Button bt_navigation;
+    private Button bt_floating_action_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +124,22 @@ public class MainActivity extends AppCompatActivity {
         bt_dialog_other.setOnClickListener(mClicklisteber);
         bt_recycle_move = (Button) findViewById(R.id.bt_recycle_move);
         bt_recycle_move.setOnClickListener(mClicklisteber);
+        bt_navigation = (Button) findViewById(R.id.bt_navigation);
+        bt_navigation.setOnClickListener(mClicklisteber);
+
+        bt_floating_action_button = (Button) findViewById(R.id.bt_floating_action_button);
+        bt_floating_action_button.setOnClickListener(mClicklisteber);
+
+        Button bt_textinput_asd = (Button) findViewById(R.id.bt_textinput_asd);
+        bt_textinput_asd.setOnClickListener(mClicklisteber);
+        Button bt_snack_bar = (Button) findViewById(R.id.bt_snack_bar);
+        bt_snack_bar.setOnClickListener(mClicklisteber);
+        Button bt_app_bar_layout = (Button) findViewById(R.id.bt_app_bar_layout);
+        bt_app_bar_layout.setOnClickListener(mClicklisteber);
+        Button bt_coordinator_layout = (Button) findViewById(R.id.bt_coordinator_layout);
+        bt_coordinator_layout.setOnClickListener(mClicklisteber);
+        Button bt_collapsing_layout = (Button) findViewById(R.id.bt_collapsing_layout);
+        bt_collapsing_layout.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -190,14 +216,14 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.bt_event_bus:
-                    startActivity(new Intent(MainActivity.this,EventFirstActivity.class));
+                    startActivity(new Intent(MainActivity.this, EventFirstActivity.class));
                     break;
 
                 case R.id.bt_movie:
-                    startActivity(new Intent(MainActivity.this,MovieActivity.class));
+                    startActivity(new Intent(MainActivity.this, MovieActivity.class));
                     break;
                 case R.id.bt_welfare:
-                    startActivity(new Intent(MainActivity.this,WelfareActivity.class));
+                    startActivity(new Intent(MainActivity.this, WelfareActivity.class));
                     break;
 
                 case bt_testserver:
@@ -227,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
                     map.put("user_account", "2132902333.2166");
                     map.put("user_id", "33261b2801a636df54f4b4d99b6313f02b");
                     String sign = new ServerDemo().getSign(map, "261b2801a636df54f4b4d99b6313f02b");
-                    Log.e("=====sign", "onClick: "+sign );
+                    Log.e("=====sign", "onClick: " + sign);
                     break;
 
                 case R.id.bt_viewpager:
@@ -235,11 +261,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.bt_notification:
-                    Intent intent = new Intent(MainActivity.this,PayActivity.class);
+                    Intent intent = new Intent(MainActivity.this, PayActivity.class);
                     PendingIntent p = PendingIntent.getActivity(MainActivity.this, 0, intent, 0);
                     NotificationManager notificationManager = (NotificationManager) MainActivity.this.getSystemService(NOTIFICATION_SERVICE);
                     Notification.Builder notification = new Notification.Builder(MainActivity.this);
-                    notification.setSmallIcon(R.mipmap.navigation_back_white,1000);
+                    notification.setSmallIcon(R.mipmap.navigation_back_white, 1000);
                     notification.setContentTitle("我是消息");
                     notification.setContentText("我是很多很多很多很多很多内容啊........");
                     notification.setWhen(System.currentTimeMillis());
@@ -250,28 +276,50 @@ public class MainActivity extends AppCompatActivity {
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
                         Notification build = notification.build();
 
-                        notificationManager.notify(0,build);
+                        notificationManager.notify(0, build);
                     }
                     break;
                 case R.id.bt_textview:
-                   startActivity(new Intent(MainActivity.this, TextViewActivity.class));
+                    startActivity(new Intent(MainActivity.this, TextViewActivity.class));
                     break;
                 case R.id.bt_gridview:
                     startActivity(new Intent(MainActivity.this, GridViewActivity.class));
                     break;
                 case R.id.bt_dialog:
-                    startActivity(new Intent(MainActivity.this,AlertDialogActivity.class));
+                    startActivity(new Intent(MainActivity.this, AlertDialogActivity.class));
                     break;
                 case R.id.bt_other_dialog:
                     startActivity(new Intent(MainActivity.this, OtherDialogActivity.class));
                     break;
 
                 case R.id.bt_recycle:
-                    startActivity(new Intent(MainActivity.this,RecycleActivity.class));
+                    startActivity(new Intent(MainActivity.this, RecycleActivity.class));
                     break;
 
                 case R.id.bt_recycle_move:
-                    startActivity(new Intent(MainActivity.this,RecycleMoveActivity.class));
+                    startActivity(new Intent(MainActivity.this, RecycleMoveActivity.class));
+                    break;
+
+                case R.id.bt_navigation:
+                    startActivity(new Intent(MainActivity.this, NavigationViewActivity.class));
+                    break;
+                case R.id.bt_floating_action_button:
+                    startActivity(new Intent(MainActivity.this, FloatingActionButtonActivity.class));
+                    break;
+                case R.id.bt_textinput_asd:
+                    startActivity(new Intent(MainActivity.this, TextInputLayoutActivity.class));
+                    break;
+                case R.id.bt_snack_bar:
+                    startActivity(new Intent(MainActivity.this, SnackBarActivity.class));
+                    break;
+                case R.id.bt_app_bar_layout:
+                    startActivity(new Intent(MainActivity.this, AppBarLayoutActivity.class));
+                    break;
+                case R.id.bt_coordinator_layout:
+                    startActivity(new Intent(MainActivity.this, CoordinatorLayoutActivity.class));
+                    break;
+                case R.id.bt_collapsing_layout:
+                    startActivity(new Intent(MainActivity.this, CollapsingToolBarActivity.class));
                     break;
             }
         }

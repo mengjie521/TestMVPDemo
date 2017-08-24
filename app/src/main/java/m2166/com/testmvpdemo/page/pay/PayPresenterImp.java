@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import m2166.com.testmvpdemo.base.BasePresenter;
-import m2166.com.testmvpdemo.constant;
+import m2166.com.testmvpdemo.constant.Api;
 
 /**
  * author： mengjie on 2017/8/8.
@@ -23,7 +23,7 @@ class PayPresenterImp extends BasePresenter<PayActivity> implements PayPresenter
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                mPayActivity.paySuccess(constant.PAY_ALIPAY,"sussess,sussess,sussess,sussess");
+                mPayActivity.paySuccess(Api.PAY_ALIPAY,"sussess,sussess,sussess,sussess");
             }
         },100);
     }
@@ -33,7 +33,7 @@ class PayPresenterImp extends BasePresenter<PayActivity> implements PayPresenter
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                mPayActivity.paySuccess(constant.PAY_WEICHAT,"sussess,sussess,sussess,sussess");
+                mPayActivity.paySuccess(Api.PAY_WEICHAT,"sussess,sussess,sussess,sussess");
             }
         },100);
     }
@@ -43,7 +43,7 @@ class PayPresenterImp extends BasePresenter<PayActivity> implements PayPresenter
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                mPayActivity.paySuccess(constant.PAY_HXPTB,"sussess,sussess,sussess,sussess");
+                mPayActivity.paySuccess(Api.PAY_HXPTB,"sussess,sussess,sussess,sussess");
             }
         },100);
     }
@@ -53,7 +53,7 @@ class PayPresenterImp extends BasePresenter<PayActivity> implements PayPresenter
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                mPayActivity.payFail(constant.PAY_HXHB,"payFail,payFail,payFail,payFail");
+                mPayActivity.payFail(Api.PAY_HXHB,"payFail,payFail,payFail,payFail");
             }
         },100);
     }
