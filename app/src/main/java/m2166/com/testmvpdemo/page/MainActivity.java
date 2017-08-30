@@ -29,6 +29,7 @@ import m2166.com.testmvpdemo.page.asd.coordinator_layout.CoordinatorLayoutActivi
 import m2166.com.testmvpdemo.page.asd.floating_action_button.FloatingActionButtonActivity;
 import m2166.com.testmvpdemo.page.asd.navigation_view.NavigationViewActivity;
 import m2166.com.testmvpdemo.page.asd.snack_bar.SnackBarActivity;
+import m2166.com.testmvpdemo.page.asd.toolbar_and_actionbar.ToolbarAndActionbarActivity;
 import m2166.com.testmvpdemo.page.auto.TextViewActivity;
 import m2166.com.testmvpdemo.page.butterknife.ButterknifeActivity;
 import m2166.com.testmvpdemo.page.dao.DaoActivity;
@@ -41,6 +42,9 @@ import m2166.com.testmvpdemo.page.other_dialog.OtherDialogActivity;
 import m2166.com.testmvpdemo.page.pay.PayActivity;
 import m2166.com.testmvpdemo.page.recycle.RecycleActivity;
 import m2166.com.testmvpdemo.page.recycle_move.RecycleMoveActivity;
+import m2166.com.testmvpdemo.page.demo.DemoActivity;
+import m2166.com.testmvpdemo.page.thread.ThreadPoolActivity;
+import m2166.com.testmvpdemo.page.timer.CountDownActivity;
 import m2166.com.testmvpdemo.page.welfare.WelfareActivity;
 import m2166.com.testmvpdemo.test.ServerDemo;
 import retrofit2.Call;
@@ -140,6 +144,18 @@ public class MainActivity extends AppCompatActivity {
         bt_coordinator_layout.setOnClickListener(mClicklisteber);
         Button bt_collapsing_layout = (Button) findViewById(R.id.bt_collapsing_layout);
         bt_collapsing_layout.setOnClickListener(mClicklisteber);
+        Button bt_toolbar = (Button) findViewById(R.id.bt_toolbar);
+        bt_toolbar.setOnClickListener(mClicklisteber);
+        Button bt_vpn = (Button) findViewById(R.id.bt_vpn);
+        bt_vpn.setOnClickListener(mClicklisteber);
+        Button bt_thread_pool = (Button) findViewById(R.id.bt_thread_pool);
+        bt_thread_pool.setOnClickListener(mClicklisteber);
+
+        Button bt_count_down = (Button) findViewById(R.id.bt_count_down);
+        bt_count_down.setOnClickListener(mClicklisteber);
+
+        Button bt_demo = (Button) findViewById(R.id.bt_demo);
+        bt_demo.setOnClickListener(mClicklisteber);
     }
 
     private View.OnClickListener mClicklisteber = new View.OnClickListener() {
@@ -265,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
                     PendingIntent p = PendingIntent.getActivity(MainActivity.this, 0, intent, 0);
                     NotificationManager notificationManager = (NotificationManager) MainActivity.this.getSystemService(NOTIFICATION_SERVICE);
                     Notification.Builder notification = new Notification.Builder(MainActivity.this);
-                    notification.setSmallIcon(R.mipmap.navigation_back_white, 1000);
+                    notification.setSmallIcon(R.mipmap.a2, 1000);
                     notification.setContentTitle("我是消息");
                     notification.setContentText("我是很多很多很多很多很多内容啊........");
                     notification.setWhen(System.currentTimeMillis());
@@ -275,7 +291,6 @@ public class MainActivity extends AppCompatActivity {
                     notification.setContentIntent(p);
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
                         Notification build = notification.build();
-
                         notificationManager.notify(0, build);
                     }
                     break;
@@ -320,6 +335,28 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.bt_collapsing_layout:
                     startActivity(new Intent(MainActivity.this, CollapsingToolBarActivity.class));
+                    break;
+
+                case R.id.bt_toolbar:
+                    startActivity(new Intent(MainActivity.this, ToolbarAndActionbarActivity.class));
+                    break;
+
+                case R.id.bt_vpn:
+                    Intent vpnIntent = new Intent();
+                    vpnIntent.setAction("android.net.vpn.SETTINGS");
+                    startActivity(vpnIntent);
+                    break;
+
+                case R.id.bt_thread_pool:
+                  startActivity(new Intent(MainActivity.this,ThreadPoolActivity.class));
+                    break;
+
+                case R.id.bt_count_down:
+                    startActivity(new Intent(MainActivity.this,CountDownActivity.class));
+                    break;
+
+                case R.id.bt_demo:
+                    startActivity(new Intent(MainActivity.this,DemoActivity.class));
                     break;
             }
         }

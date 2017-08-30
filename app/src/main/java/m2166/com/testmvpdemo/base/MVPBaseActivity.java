@@ -2,6 +2,8 @@ package m2166.com.testmvpdemo.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -26,4 +28,10 @@ public abstract class MVPBaseActivity<V,T extends BasePresenter<V>> extends AppC
     }
 
     protected abstract T createPresenter();
+
+    protected void addFragment(int containerViewId, Fragment fragment) {
+        final FragmentTransaction fragmentTransaction = this.getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(containerViewId, fragment);
+        fragmentTransaction.commit();
+    }
 }

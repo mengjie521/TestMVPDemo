@@ -74,7 +74,7 @@ public class OtherDialogActivity extends MVPBaseActivity<OtherDialogActivity, Ot
                         Toast.makeText(mActivity, "变帅成功", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
                     }
-                }, 5000);
+                }, 3000);
                 break;
             case R.id.bt_progress_rectangle:
                 progressDialog1 = new ProgressDialog(mActivity);
